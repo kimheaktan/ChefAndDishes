@@ -1,0 +1,35 @@
+﻿@model List<Chef>
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+@* <label class="btn btn-success active">
+    <input type="radio" asp-action="Index" asp-controller="Home" autocomplete="off" checked> Chefs
+  </label>
+  <label class="btn btn-success">
+    <input type="radio" asp-action="AllDishes" asp-controller="Dish" autocomplete="off"> Dishes
+  </label> *@
+
+<a asp-action="AllDishes" asp-controller="Dish" >Go To see all Dishes</a>
+
+
+<h3>Here are all the Chefs</h3>
+<ol>
+@foreach (Chef chef in Model)
+{
+    <li> @chef.FullName()~  @chef.Age years old, made @chef.Dishes.Count dish(es) </li>
+    <a asp-action="DeleteChef" asp-controller="Chef" asp-route-chefId="@chef.ChefId">Delete</a>
+}
+</ol>
+
+<hr>
+
+<a asp-action="NewChef" asp-controller="Chef" class="text-right" type="button" ><Button class="btn btn-warning">Add a Chef</button></a>
+
+
+
+@* <div class="text-center">
+    <h1 class="display-4"><a asp-action"/" asp-controller="Home">Chefs</a> |
+    <a asp-action="" asp-controller="Dish">Dishes</a> </h1>
+
+</div> *@

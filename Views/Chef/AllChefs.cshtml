@@ -1,0 +1,5 @@
+@* @model List<Chef>
+
+@foreach (Chef chef in Model)
+{
+    <p>@chef.ChefId @chef.FullName() is @chef.Age years old.</p> *@

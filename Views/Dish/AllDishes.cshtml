@@ -1,0 +1,15 @@
+@model List<Dish>
+
+<a asp-action="Index" asp-controller="Home" >Go to see all Chefs </a>
+
+<h3>Here are all the Dishes</h3>
+    <ol>
+@foreach (Dish d in Model)
+{
+        <li>@d.Name by @d.Cook.FullName() has @d.Calories calories and Tastiness: @d.Tastiness</li>
+    <a asp-action="DeleteDish" asp-controller="Dish" asp-route-dishId="@d.DishId">Delete</a>
+
+}
+    </ol>
+
+<a asp-action="NewDish" asp-controller="Dish" class="text-right" type="button" ><Button class="btn btn-warning">Add a Dish</button></a>
